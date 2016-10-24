@@ -14,3 +14,6 @@ alt="DIY XMAS TREE" width="240" height="180" border="10" /></a>
 5. Connect the first input to Digistump pin 1.
 6. Connect Digistump to powersource.
 7. Enjoy!
+
+
+If you build this tree, i would like to hear from it! Also code-updates are welcome! New Tree-Patterns are always good :-)
