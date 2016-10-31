@@ -2,23 +2,24 @@
  * Christmas tree by designer2k2.at
  * Stephan Martin 2016
  * http://www.designer2k2.at
+ * https://github.com/designer2k2/xmas-tree
  * 
  * This code is made to run on a Digispark
  * Feeding Neopixel Rings, stacked to a tree.
  * 
- * Brightness is reduced as there is only USB supply.
+ * Brightness is reduced as there is only USB power supply.
  * 
  */
 
 
-#include <Adafruit_NeoPixel.h>
-#include <avr/pgmspace.h>
+#include <Adafruit_NeoPixel.h>    //needed for the WS2812
+#include <avr/pgmspace.h>		      //needed for PROGMEM
 
-#define PIN 1
-#define BRIGHTNESS 10 // set max brightness
+#define PIN 1					            //Pin 1 is DATA In on the bottom Ring
+#define BRIGHTNESS 10 			      // brightness reduced
 
 
-//Lookups for the X-M-A-S:
+//Lookups for the X-M-A-S Letters viewed from above:
  const unsigned int charX[] PROGMEM = 
  { 
    4,27,54,61,58,35,16,10,31,56,60,39,22
@@ -36,6 +37,7 @@
   22,38,37,36,35,34,47,57,61,53,41,26,27,28,29,30,10
  };
 
+ //Lookup for the Candle light
  const unsigned int candles[] PROGMEM = 
  { 
   15,10,48,45,36,19,59,29,5,43,41,39,24,3,61
@@ -66,7 +68,7 @@ void setup() {
 
 void loop() {
 
-  //XMAS:
+  //2x XMAS Letters:
   xmas();
   delay(2000);
   xmas();
@@ -99,8 +101,9 @@ void loop() {
 
 //Sub-----------------------------------------------------------------------
 
-void colorcrazy(){
-    colorWipe(strip.Color(255, 0, 0), 25); // Red
+//This drives the WS2812 in a crazy pattern, fun!
+void colorcrazy(){ 
+  colorWipe(strip.Color(255, 0, 0), 25); // Red
   colorWipe(strip.Color(0, 255, 0), 25); // Green
   colorWipe(strip.Color(0, 0, 255), 25); // Blue
   theaterChaseRainbow(0);
@@ -109,6 +112,7 @@ void colorcrazy(){
   colorWipe(strip.Color(0, 0, 0), 0); // Green
 }
 
+//This lights up the tree in green, then add the white "candles"
 void tree(){
 
   colorWipe(strip.Color(0, 50, 0), 50); // Green
@@ -124,12 +128,14 @@ void tree(){
 
 }
 
-
-
+//This shows the X-M-A-S when viewed from above
 void xmas(){
 
   colorWipe(strip.Color(0, 0, 0), 0); // blank
 
+  
+  //The size of the PROGMEM is hardcoded, as the sizeof does return crap on the ATtiny.
+  
   //Show the X:
   for (int i = 0; i < 13; i++)
   {
@@ -256,4 +262,3 @@ uint32_t Wheel(byte WheelPos) {
    return strip.Color(WheelPos * 3, 255 - WheelPos * 3, 0);
   }
 }
-
