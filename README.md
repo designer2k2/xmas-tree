@@ -8,7 +8,7 @@ alt="DIY XMAS TREE" width="240" height="180" border="10" /></a>
 ## Items Needed:
 1. WS2812 LED Rings, 1 - 8 - 12 - 16 - 24 LED´s per ring, total of 61 WS2812 Led´s
 2. Digispark ATtiny85 USB Development Board
-3. Magnet wire, i used 0,71mm / AWG21
+3. Enameled magnet wire, i used 0,71mm / AWG21
 
 ## HowTo:
 
