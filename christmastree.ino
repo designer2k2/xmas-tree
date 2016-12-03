@@ -64,15 +64,15 @@ void setup() {
   strip.setBrightness(BRIGHTNESS); // set brightness
   strip.show(); // Initialize all pixels to 'off'
   
-}
-
-void loop() {
-
   //2x XMAS Letters:
   xmas();
   delay(2000);
   xmas();
   delay(2000);
+  
+}
+
+void loop() {
   
   //Tree light:
   tree();
@@ -80,7 +80,7 @@ void loop() {
 
   //Color crazy:
   colorcrazy();
-  delay(1000);
+  //delay(1000);
   
 
   /*
@@ -106,10 +106,14 @@ void colorcrazy(){
   colorWipe(strip.Color(255, 0, 0), 25); // Red
   colorWipe(strip.Color(0, 255, 0), 25); // Green
   colorWipe(strip.Color(0, 0, 255), 25); // Blue
-  theaterChaseRainbow(0);
-  theaterChaseRainbow(0);
-  theaterChaseRainbow(0);
-  colorWipe(strip.Color(0, 0, 0), 0); // Green
+  
+  for (int i = 0; i < 10; i++)
+  {
+    theaterChaseRainbow(5);
+  }  
+  
+  colorWipe(strip.Color(0, 0, 0), 0); // Black
+  
 }
 
 //This lights up the tree in green, then add the white "candles"
