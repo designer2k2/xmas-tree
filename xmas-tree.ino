@@ -16,7 +16,7 @@
 #include <avr/pgmspace.h>		      //needed for PROGMEM
 
 #define PIN 1					            //Pin 1 is DATA In on the bottom Ring
-#define BRIGHTNESS 10 			      // brightness reduced
+#define BRIGHTNESS 40 			      // brightness reduced
 
 
 //Lookups for the X-M-A-S Letters viewed from above:
@@ -64,9 +64,7 @@ void setup() {
   strip.setBrightness(BRIGHTNESS); // set brightness
   strip.show(); // Initialize all pixels to 'off'
   
-  //2x XMAS Letters:
-  xmas();
-  delay(2000);
+  //XMAS Letters:
   xmas();
   delay(2000);
   
@@ -76,11 +74,14 @@ void loop() {
   
   //Tree light:
   tree();
-  delay(10000);
+  delay(1000);
 
   //Color crazy:
   colorcrazy();
   //delay(1000);
+
+  warpdrive();
+  comet();
   
 
   /*
@@ -101,19 +102,122 @@ void loop() {
 
 //Sub-----------------------------------------------------------------------
 
+//Comet
+void comet(){
+  for(uint16_t i=strip.numPixels(); i>0; i--) {
+     strip.setPixelColor(i,strip.Color(0, 0, 255));
+     fadethemall(10);
+     fadethemall(10);
+  }
+}
+
+//From top down white pulses
+void warpdrive(){
+
+  //Top Led
+  strip.setPixelColor(60,strip.Color(255, 255, 255));
+  strip.show();
+  //fade a bit
+  for (int i = 0; i < 20; i++)
+  {
+    fadethemall(20);
+  } 
+  //8 Ring
+  for (int i = 52; i < 60; i++)
+  {
+    strip.setPixelColor(i,strip.Color(255, 255, 255));
+  }
+  strip.show();
+  //fade a bit
+  for (int i = 0; i < 20; i++)
+  {
+    fadethemall(20);
+  } 
+  //12 Ring
+  for (int i = 40; i < 52; i++)
+  {
+    strip.setPixelColor(i,strip.Color(255, 255, 255));
+  }
+  strip.show();
+  //fade a bit
+  for (int i = 0; i < 20; i++)
+  {
+    fadethemall(20);
+  } 
+  //16 Ring
+  for (int i = 24; i < 40; i++)
+  {
+    strip.setPixelColor(i,strip.Color(255, 255, 255));
+  }
+  strip.show();
+  //fade a bit
+  for (int i = 0; i < 20; i++)
+  {
+    fadethemall(20);
+  }
+  //24 Ring
+  for (int i = 0; i < 24; i++)
+  {
+    strip.setPixelColor(i,strip.Color(255, 255, 255));
+  }
+  strip.show();
+  //fade a bit
+  for (int i = 0; i < 20; i++)
+  {
+    fadethemall(20);
+  }
+}
+
+//This reduces the brightness of all leds
+void fadethemall(uint8_t wait){
+    for(uint16_t i=0; i<strip.numPixels(); i++) {
+      uint32_t color = strip.getPixelColor(i);
+      int r;
+      int g;
+      int b;
+      r = (uint8_t)(color >> 16);
+      g = (uint8_t)(color >>  8);
+      b = (uint8_t)color;
+
+      if(r>0)
+      {
+        r = r - 1;
+      }
+      else
+      {
+        r = 0;
+      }
+
+      if(g>0)
+      {
+        g = g - 1;
+      }
+      else
+      {
+        g = 0;
+      }
+
+      if(b>0)
+      {
+        b = b - 1;
+      }
+      else
+      {
+        b = 0;
+      }
+      
+      strip.setPixelColor(i, strip.Color(r, g, b));
+  }
+  strip.show();
+  delay(wait);
+}
+
 //This drives the WS2812 in a crazy pattern, fun!
 void colorcrazy(){ 
   colorWipe(strip.Color(255, 0, 0), 25); // Red
   colorWipe(strip.Color(0, 255, 0), 25); // Green
-  colorWipe(strip.Color(0, 0, 255), 25); // Blue
-  
-  for (int i = 0; i < 10; i++)
-  {
-    theaterChaseRainbow(5);
-  }  
-  
-  colorWipe(strip.Color(0, 0, 0), 0); // Black
-  
+  colorWipe(strip.Color(0, 0, 255), 25); // Blue  
+  theaterChaseRainbow(5);
 }
 
 //This lights up the tree in green, then add the white "candles"
