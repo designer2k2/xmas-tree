@@ -9,6 +9,10 @@
  * 
  * Brightness is reduced as there is only USB power supply.
  * 
+ *
+ * Needs Adafruit NeoPixel Lib to work: https://github.com/adafruit/Adafruit_NeoPixel
+ * Use the build in Library manager in the Arduino IDE: "Adafruit NeoPixel"
+ * 
  */
 
 
