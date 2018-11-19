@@ -1,12 +1,12 @@
 # xmas-tree
-XMAS Tree from stacked ws2812 rings driven by a Digispark.
+DIY XMAS Tree from stacked ws2812 RGB LED rings driven by a Digispark.
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=Fm5TMvk3bUo
 " target="_blank"><img src="http://img.youtube.com/vi/Fm5TMvk3bUo/0.jpg" 
 alt="DIY XMAS TREE" width="240" height="180" border="10" /></a>
 
 ## Items Needed:
-1. WS2812 LED Rings, 1 - 8 - 12 - 16 - 24 LED´s per ring, total of 61 WS2812 Led´s. Example: [61 LED Ring´s](http://www.dx.com/p/61-bit-ws2812-5050-rgb-led-full-color-drive-round-development-board-414669) 
+1. WS2812 RGB LED Rings, 1 - 8 - 12 - 16 - 24 LED´s per ring, total of 61 WS2812 Led´s. Example: [61 LED Ring´s](http://www.dx.com/p/61-bit-ws2812-5050-rgb-led-full-color-drive-round-development-board-414669) 
 2. Digispark ATtiny85 USB Development Board
 3. Enameled magnet wire, i used 0,71mm / AWG21
 
@@ -22,6 +22,10 @@ alt="DIY XMAS TREE" width="240" height="180" border="10" /></a>
 
 
 If you build this tree, i would like to hear from it! Also code-updates are welcome! New Tree-Patterns are always good :-)
+
+This Christmas decoration is simple to build, great for Arduino and DIY beginners, but also more experienced people can have lots of fun with hacking the code!
+
+It can be considered OSHW, i mean, how can you not recreate this easily?
 
 ### Hints:
 
