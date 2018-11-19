@@ -20,7 +20,7 @@
 #include <avr/pgmspace.h>		      //needed for PROGMEM
 
 #define PIN 1					            //Pin 1 is DATA In on the bottom Ring
-#define BRIGHTNESS 40 			      // brightness reduced
+#define BRIGHTNESS 40 			      // brightness reduced (about 180mA max, 100mA average)
 
 
 //Lookups for the X-M-A-S Letters viewed from above:
