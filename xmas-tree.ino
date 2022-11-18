@@ -20,7 +20,6 @@
 
 
 #include <Adafruit_NeoPixel.h>    //needed for the WS2812
-#include <avr/pgmspace.h>		      //needed for PROGMEM
 
 #define PIN 1					            //Pin 1 is DATA In on the bottom Ring
 #define BRIGHTNESS 40 			      // brightness reduced (about 180mA max, 100mA average)
