@@ -2,7 +2,7 @@
 #include <Adafruit_NeoPixel.h>    //needed for the WS2812
 
 #define PIN 1					            //Pin 1 is DATA In on the bottom Ring
-#define BRIGHTNESS 255 			      // brightness reduced (about 180mA max, 100mA average)
+#define BRIGHTNESS 40 			      // brightness reduced (about 180mA max, 100mA average)
 #define SIZEOFARRAY(X) sizeof(X) / sizeof(X[0])
 
 #define TOTAL_LED 61 // Fill by hand
