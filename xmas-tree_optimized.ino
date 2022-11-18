@@ -141,7 +141,7 @@ void tree(uint32_t _color) {
   //light "candles"
   //Show the S:
   for (uint8_t i = 0; i < SIZEOFARRAY(candles); i++) {
-    strip.setPixelColor(pgm_read_word(&candles[i]) - 1, strip.Color(255, 255, 255));
+    strip.setPixelColor(pgm_read_byte(&candles[i]) - 1, strip.Color(255, 255, 255));
     strip.show();
     delay(50);
   }
