@@ -90,16 +90,15 @@ void warpdrive(uint32_t _color) {
   uint8_t totalLed = TOTAL_LED;
   uint8_t ringSize, led;
 
-
-  for (count = 0;count < SIZEOFARRAY(ringsSize); ++count) {
+  for (ringSize = 0;ringSize < SIZEOFARRAY(ringsSize); ++ringSize) {
     // 60 -> 61 (1) | 52 -> 60 (8) | 40 -> 52 (12) ...
-    for (led = totalLed - ringsSize[count]; led < totalLed; ++led) {
+    for (led = totalLed - ringsSize[ringSize]; led < totalLed; ++led) {
         strip.setPixelColor(led, _color);
     }
     strip.show();
 
     for (uint8_t i = 0; i < 20; i++) fadethemall(20);
-    totalLed -= ringsSize[count];
+    totalLed -= ringsSize[ringSize];
   }
 }
 
@@ -109,7 +108,7 @@ void fadethemall(uint8_t _wait) {
   uint32_t color;  
 
   for (counter = 0; counter < TOTAL_LED; counter++) {
-    color = strip.getPixelColor(i);
+    color = strip.getPixelColor(counter);
 
     r = (uint8_t)(color >> 16);
     g = (uint8_t)(color >>  8);
@@ -119,7 +118,7 @@ void fadethemall(uint8_t _wait) {
     if (g > 0) --g;
     if (b > 0) --b;
 
-    strip.setPixelColor(i, strip.Color(r, g, b));
+    strip.setPixelColor(counter, strip.Color(r, g, b));
   }
 
   strip.show();
