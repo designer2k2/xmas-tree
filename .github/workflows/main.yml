@@ -20,6 +20,8 @@ jobs:
               name: "ATTinyCore:avr"
               source-path: "./avr/"
             - name: "arduino:avr"
+          sketch-paths: |
+            - /
           fqbn: "ATTinyCore:avr:attinyx5micr"
           libraries: |
             - name: "Adafruit NeoPixel"
