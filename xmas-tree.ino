@@ -14,7 +14,14 @@
 
 #include <Adafruit_NeoPixel.h>  //needed for the WS2812
 
+#if defined(ESP32)
+#pragma message "ESP32 based board, Pin 8"
+#define PIN 8          //Pin 8, A3 is DATA In on the bottom Ring
+#else
+#pragma message "AVR based board, Pin 1"
 #define PIN 1          //Pin 1 is DATA In on the bottom Ring
+#endif
+
 #define BRIGHTNESS 40  // brightness reduced (about 180mA max, 100mA average)
 #define SIZEOFARRAY(X) sizeof(X) / sizeof(X[0])
 
