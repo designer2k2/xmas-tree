@@ -11,7 +11,7 @@ jobs:
     
     strategy:
       matrix:
-        board: |
+        board:
           - fqbn: "ATTinyCore:avr:attinyx5micr"
           - fqbn: "esp32:esp32:adafruit_qtpy_esp32s2"
           - fqbn: "esp32:esp32:XIAO_ESP32C3"
