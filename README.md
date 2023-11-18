@@ -14,7 +14,7 @@ alt="DIY XMAS TREE" width="560" height="315" border="10" /></a>
 
 1. Solder WS2812 led rings power and ground with magnet wire, tree shaped.
 2. Solder every output with the input from the next ring.
-3. Programm Digispark using Arduino IDE.
+3. Program Digispark using Arduino IDE.
 4. Connect power and ground to Digispark.
 5. Connect the first input to Digispark pin 1.
 6. Connect Digispark to powersource.
